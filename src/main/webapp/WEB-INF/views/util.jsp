@@ -48,6 +48,7 @@ text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 	<a id="sse" href="sse" class="btn btn-primary">서버이벤트</a>&nbsp;&nbsp;
 	<a id="wstorage" href="wstorage" class="btn btn-danger">웹스토리지</a>&nbsp;&nbsp;
 	<a id="wworker" href="wworker" class="btn btn-success">웹워커</a>&nbsp;&nbsp;
+	<a id="fconvert" href="fconvert" class="btn btn-warning">파일변환</a>&nbsp;&nbsp;
 </div>
 
 <!-- main -->
@@ -94,6 +95,20 @@ $("#wworker").click(function(event){
 		},
 		error : function() {
 			alert("웹서버 에러 발생");
+		}
+	});
+});
+
+$("#fconvert").click(function(event){
+	event.preventDefault();
+	$.ajax({
+		url : "fconvert",
+		type : "get",
+		success : function(data) {
+			$("#main").html(data);
+		},
+		error : function() {
+			alert("파일변환 에러 발생");
 		}
 	});
 });
